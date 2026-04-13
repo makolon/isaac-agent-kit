@@ -1,0 +1,16 @@
+---
+name: IsaacLab task authoring
+description: Decompose Isaac Lab feature work into reviewable tasks with validation steps.
+---
+
+Use this skill when a request is broad and needs to be broken into concrete implementation steps for an Isaac Lab repository.
+
+## Playbook
+- Identify the relevant task config, environment logic, asset definitions, wrappers, scripts, docs, and tests.
+- Split config changes from simulator or runtime changes whenever possible.
+- For each subtask, record the likely files, the main technical risk, and the smallest useful validation command or smoke check.
+- Highlight when the work likely touches observations, actions, rewards, terminations, resets, training config, or documentation together.
+
+## Output
+- Produce a concise, execution-ready task list.
+- Make validation expectations explicit.

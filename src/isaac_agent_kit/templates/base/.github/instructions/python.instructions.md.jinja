@@ -1,0 +1,12 @@
+---
+applyTo: "**/*.py"
+---
+
+When editing Python in this repository:
+
+- Preserve the repository's existing module layout and naming patterns.
+- Add type hints to new or changed public APIs.
+- Prefer standard-library helpers before introducing a new dependency.
+- Avoid import-time side effects unless the surrounding code already relies on them.
+- Keep parsing, I/O, and business logic separated when it improves clarity.
+- Update nearby tests when behavior changes.

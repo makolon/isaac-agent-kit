@@ -1,0 +1,10 @@
+---
+applyTo: "source/**/*.py,extensions/**/*.py,scripts/**/*.py"
+---
+
+When editing Isaac Lab code:
+
+- Keep configuration and runtime-heavy implementation modules separate when the repository already follows that split.
+- Avoid eager imports of simulator packages from pure config modules; preserve existing `TYPE_CHECKING`, lazy export, or string-reference patterns when present.
+- Mirror the repository's existing task or environment package layout instead of introducing a new hierarchy.
+- When changing tasks or environments, review observations, actions, rewards, terminations, resets, scene setup, and docs together.

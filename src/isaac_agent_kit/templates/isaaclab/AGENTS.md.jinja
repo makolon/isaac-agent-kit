@@ -1,0 +1,28 @@
+# Agent Guide For {{ repo_name }}
+
+## Scope
+- This repository is expected to contain Isaac Lab based Python development, and may be edited by coding agents.
+- Prefer small, reviewable changes that preserve simulator startup behavior and repository-specific conventions.
+- Read the affected task, asset, environment config, script entrypoint, and nearby tests before editing.
+
+## Primary Workflow
+- Prefer repository task wrappers in this order when available: `pixi run <task>`, `./isaaclab.sh ...` or `isaaclab.bat ...`, then `uv run <command>`.
+- Match the repository's existing task layout, config naming, logging, and typing patterns.
+- Avoid speculative refactors while fixing simulator or training behavior.
+- If a change touches public behavior, task configuration, or training workflows, update docs and regression coverage when practical.
+
+## Isaac Lab Patterns
+- Keep pure configuration modules separate from runtime-heavy implementation modules that import simulator packages.
+- If the repository already uses `typing.TYPE_CHECKING`, lazy exports, `.pyi` stubs, or string-based references to avoid eager imports, preserve those patterns.
+- When changing task logic, inspect related observations, actions, rewards, terminations, reset behavior, scene assets, and wrappers together.
+- For articulation or actuator issues, verify joint selectors, units, limits, stiffness, damping, effort or velocity caps, and reset defaults before changing controller logic.
+
+## Validation
+- Start with the narrowest relevant check.
+- Useful commands in typical Isaac Lab repositories:
+  - `./isaaclab.sh --format`
+  - `./isaaclab.sh -p -m pytest path/to/test.py`
+  - `./isaaclab.sh --docs`
+- Use the Windows wrapper equivalents when working in repositories that expose `isaaclab.bat`.
+- Prefer a minimal reproduction or short smoke test before a full training run when debugging simulator behavior.
+- If simulator-backed validation was skipped, say exactly what was not run.

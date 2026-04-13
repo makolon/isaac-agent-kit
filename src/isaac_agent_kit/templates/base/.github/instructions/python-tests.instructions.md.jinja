@@ -1,0 +1,10 @@
+---
+applyTo: "tests/**/*.py,**/test_*.py,**/*_test.py"
+---
+
+When editing Python tests:
+
+- Test observable behavior instead of private implementation details where practical.
+- Add regression coverage for the exact bug or edge case being changed.
+- Prefer parametrization over copy-pasted cases.
+- Avoid wall-clock sleeps, network calls, and nondeterministic randomness unless the repository already requires them.

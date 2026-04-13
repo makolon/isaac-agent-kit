@@ -1,0 +1,23 @@
+# Agent Guide For {{ repo_name }}
+
+## Scope
+- This repository is intended to be edited by coding agents as well as humans.
+- Prefer small, reviewable changes that preserve existing behavior unless the task explicitly asks for a wider refactor.
+- Inspect nearby code, tests, task runners, and documentation before introducing new patterns.
+
+## Workflow
+- Prefer project-provided wrappers first. If the repository already uses `pixi`, prefer `pixi run <task>`. If it uses `uv`, prefer `uv run <command>`.
+- Match local naming, typing, logging, and error-handling patterns instead of introducing a new style.
+- Keep feature work, refactors, and cleanup as separate changes when practical.
+- Update tests and docs when behavior, configuration, or public interfaces change.
+
+## Python
+- Use type hints in new or changed public code.
+- Prefer standard-library modules unless a new dependency is clearly justified.
+- Keep modules cohesive. Extract helpers only when that removes repeated complexity.
+- Prefer `pathlib` over manual path concatenation when working with files.
+
+## Validation
+- Run the narrowest relevant check first, then expand to broader validation only when needed.
+- If you could not run a check, state that explicitly in the final handoff.
+- Do not overwrite unrelated user changes or generated files unless the task requires it.

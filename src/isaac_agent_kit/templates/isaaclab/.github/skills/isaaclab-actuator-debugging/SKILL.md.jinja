@@ -1,0 +1,16 @@
+---
+name: IsaacLab actuator debugging
+description: Diagnose actuator, joint-control, and articulation issues in Isaac Lab repositories.
+---
+
+Use this skill when a task mentions actuator tuning, unstable joints, wrong joint names, unexpected articulation motion, or command-tracking issues.
+
+## Playbook
+- Locate the relevant asset config, actuator config, task or environment config, and the script that reproduces the issue.
+- Check joint selectors, units, limits, stiffness, damping, effort or velocity caps, default poses, and reset values before modifying controller code.
+- Compare commanded values with observed joint state where the repository already provides logging or debug hooks.
+- Prefer the smallest reproducible script or focused test before a long training run.
+
+## Handoff
+- State the suspected root cause.
+- List the narrowest validation step that should confirm the fix.

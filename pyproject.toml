@@ -1,0 +1,51 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "isaac-agent-kit"
+version = "0.1.0"
+description = "Bootstrap coding-agent instructions for Isaac Lab and Python repositories."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+authors = [
+  { name = "makolon" },
+]
+keywords = ["agents", "isaaclab", "python", "template"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+
+[project.scripts]
+isaac-agent-kit = "isaac_agent_kit.cli:main"
+
+[dependency-groups]
+dev = [
+  "pytest>=8.3",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/isaac_agent_kit"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"src/isaac_agent_kit/templates" = "isaac_agent_kit/templates"
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/src/isaac_agent_kit",
+  "/tests",
+  "/README.md",
+  "/LICENSE",
+]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]

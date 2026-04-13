@@ -1,0 +1,10 @@
+---
+applyTo: "source/**/*.py,extensions/**/*.py,scripts/**/*.py,tests/**/*.py"
+---
+
+When validating Isaac Lab changes:
+
+- Prefer repository wrappers such as `./isaaclab.sh` or `isaaclab.bat` over raw interpreter invocations when available.
+- Run simulator-free unit tests before simulator-backed checks whenever that is enough to cover the change.
+- Use a minimal smoke script or focused pytest target before trying a long training job.
+- If the change affects docs or formatting, prefer the repository's documented wrapper commands for those tasks as well.
